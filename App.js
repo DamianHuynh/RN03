@@ -9,11 +9,15 @@ import DemoImage from './src/Buoi2/DemoImage';
 import BindingData from './src/Buoi3/BindingData';
 import ExUI from './src/Buoi3/ExUI';
 import RenderList from './src/Buoi3/RenderList';
+import ExRender from './src/Buoi4/ExRender';
+import DemoScroll from './src/Buoi4/DemoScroll';
+import DemoFlatList from './src/Buoi4/DemoFlatList';
+import DemoSectionList from './src/Buoi4/DemoSectionList';
 
 //Stateful Component
 class App extends Component {
   render() {
-    return <RenderList />;
+    return <DemoSectionList />;
   }
 }
 

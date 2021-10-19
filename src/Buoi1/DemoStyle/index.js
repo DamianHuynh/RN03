@@ -12,7 +12,6 @@ export default class DemoStyle extends Component {
         <View style={boxStyle}>
           <Text style={textStyle}>Blue:#3D85C6 </Text>
         </View>
-
         <View style={boxStyle}>
           <Text style={textStyle}>Green: #96CC96</Text>
         </View>
