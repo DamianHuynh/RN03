@@ -13,11 +13,12 @@ import ExRender from './src/Buoi4/ExRender';
 import DemoScroll from './src/Buoi4/DemoScroll';
 import DemoFlatList from './src/Buoi4/DemoFlatList';
 import DemoSectionList from './src/Buoi4/DemoSectionList';
+import RockPaperScissor from './src/Buoi5/RockPaperScissor';
 
 //Stateful Component
 class App extends Component {
   render() {
-    return <DemoSectionList />;
+    return <RockPaperScissor />;
   }
 }
 
