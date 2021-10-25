@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 export default class SelectItem extends Component {
   render() {
-    const {selectImage} = this.props;
+    const {selectImage, onPress, selected} = this.props;
     return (
-      <View style={styles.selectItemContainer}>
+      <TouchableOpacity
+        style={[styles.selectItemContainer, selected && styles.selectedItem]}
+        onPress={onPress}>
         <Image style={styles.selectImage} source={selectImage} />
-      </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -17,11 +19,13 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     backgroundColor: 'rgba(0,0,0,0.5)',
-    borderWidth: 2,
-    borderColor: '#ffff00',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
+  },
+  selectedItem: {
+    borderWidth: 2,
+    borderColor: '#ffff00',
   },
   selectImage: {
     width: 50,

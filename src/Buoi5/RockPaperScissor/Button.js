@@ -4,18 +4,20 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export default class Button extends Component {
   render() {
-    const {title, colors, isLinear, backgroundColor} = this.props;
+    const {title, colors, isLinear, backgroundColor, onPress} = this.props;
     if (isLinear) {
       return (
         <LinearGradient style={styles.buttonContainer} colors={colors}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPress}>
             <Text style={styles.buttonText}>{title}</Text>
           </TouchableOpacity>
         </LinearGradient>
       );
     }
     return (
-      <TouchableOpacity style={[styles.buttonContainer, {backgroundColor}]}>
+      <TouchableOpacity
+        onPress={onPress}
+        style={[styles.buttonContainer, {backgroundColor}]}>
         <Text style={styles.buttonText}>{title}</Text>
       </TouchableOpacity>
     );
