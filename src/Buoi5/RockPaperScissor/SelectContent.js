@@ -7,7 +7,7 @@ export default class SelectContent extends Component {
       <SelectItem
         key={selectItem.id}
         selectImage={selectItem.image}
-        onPress={() => this.props.onSelect(selectItem)}
+        onPress={() => this.props.onPress(selectItem)}
         selected={selectItem.id === this.props.playerSelectItem}
       />
     ));
