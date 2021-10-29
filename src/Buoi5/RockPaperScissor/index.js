@@ -132,7 +132,7 @@ export default class RockPaperScissor extends Component {
             <SelectContent
               playerSelectItem={playerSelect.id}
               listSelect={listSelect}
-              onSelect={this.onSelect}
+              onPress={this.onSelect}
             />
           </View>
           <View style={styles.infoContainer}>
