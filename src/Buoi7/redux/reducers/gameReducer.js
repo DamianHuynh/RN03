@@ -1,5 +1,11 @@
 import {paper, rock, scissor} from '../../images';
-
+import {
+  CAL_RESULT,
+  USER_PLAY,
+  USER_RESET,
+  USER_SELECT,
+} from '../actions/gameAction';
+import {getResultGame} from '../../utils/common';
 const initState = {
   playerSelect: {id: 'scissor', image: scissor},
   computerSelect: {id: 'rock', image: rock},
@@ -12,8 +18,24 @@ const initState = {
   times: 9,
 };
 
-const gameReducer = (state = initState, action) => {
+const gameReducer = (state = {...initState}, action) => {
+  console.log(action.type);
   switch (action.type) {
+    case USER_SELECT:
+      state.playerSelect = action.payload;
+      return {...state};
+    case USER_PLAY:
+      state.computerSelect = state.listSelect[Math.floor(Math.random() * 3)];
+      return {...state};
+    case CAL_RESULT:
+      const {playerSelect, computerSelect} = state;
+      const {times, scores} = getResultGame(playerSelect.id, computerSelect.id);
+      console.log(times, scores);
+      state.times += times;
+      state.scores += scores;
+      return {...state};
+    case USER_RESET:
+      return {...initState};
     default:
       return state;
   }

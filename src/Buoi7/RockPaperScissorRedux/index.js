@@ -10,27 +10,13 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {background, computer, paper, player, rock, scissor} from '../images';
+import {userSelect} from '../redux/actions/gameAction';
 import Button from './Button';
+import ButtonContent from './ButtonContent';
 import PlayItem from './PlayItem';
 import SelectContent from './SelectContent';
 
 class RockPaperScissorRedux extends Component {
-  state = {
-    playerSelect: {id: 'scissor', image: scissor},
-    computerSelect: {id: 'rock', image: rock},
-    listSelect: [
-      {id: 'scissor', image: scissor},
-      {id: 'rock', image: rock},
-      {id: 'paper', image: paper},
-    ],
-    scores: 0,
-    times: 9,
-  };
-
-  onSelect = playerSelect => {
-    this.setState({playerSelect});
-  };
-
   onPlayPress = () => {
     if (this.state.times <= 0) {
       Alert.alert('Game Alert', 'Game Over !!!', [
@@ -113,8 +99,7 @@ class RockPaperScissorRedux extends Component {
   };
 
   render() {
-    const {times, scores, listSelect} = this.state;
-    const {playerSelect, computerSelect} = this.props;
+    const {playerSelect, computerSelect, times, scores} = this.props;
     return (
       <ImageBackground style={styles.container} source={background}>
         <View style={styles.overlay} />
@@ -128,29 +113,13 @@ class RockPaperScissorRedux extends Component {
             />
           </View>
           <View style={styles.selectContainer}>
-            <SelectContent
-              playerSelectItem={playerSelect.id}
-              listSelect={listSelect}
-              onPress={this.onSelect}
-            />
+            <SelectContent />
           </View>
           <View style={styles.infoContainer}>
             <Text style={styles.infoText}>Scores: {scores}</Text>
             <Text style={styles.infoText}>Times: {times}</Text>
           </View>
-          <View style={styles.buttonContainer}>
-            <Button
-              title="Play"
-              onPress={this.onPlayPress}
-              colors={['#f9f', '#ff0']}
-            />
-            <Button
-              title="Reset"
-              backgroundColor="#ff0"
-              isLinear={true}
-              colors={['#f9f', '#ff0']}
-            />
-          </View>
+          <ButtonContent />
         </SafeAreaView>
       </ImageBackground>
     );
@@ -190,17 +159,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#0fc',
   },
-  buttonContainer: {
-    flex: 2,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
 });
 
 const mapStateToProps = state => {
   return {
     playerSelect: state.gameReducer.playerSelect,
     computerSelect: state.gameReducer.computerSelect,
+    times: state.gameReducer.times,
+    scores: state.gameReducer.scores,
   };
 };
 

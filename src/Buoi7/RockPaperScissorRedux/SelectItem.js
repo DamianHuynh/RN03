@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-
-export default class SelectItem extends Component {
+import {connect} from 'react-redux';
+import {userSelect} from '../redux/actions/gameAction';
+class SelectItem extends Component {
   render() {
-    const {selectImage, onPress, selected} = this.props;
+    const {selectItem, selected} = this.props;
     return (
       <TouchableOpacity
         style={[styles.selectItemContainer, selected && styles.selectedItem]}
-        onPress={onPress}>
-        <Image style={styles.selectImage} source={selectImage} />
+        onPress={() => this.props.userSelect(selectItem)}>
+        <Image style={styles.selectImage} source={selectItem.image} />
       </TouchableOpacity>
     );
   }
@@ -32,3 +33,11 @@ const styles = StyleSheet.create({
     height: 50,
   },
 });
+
+const mapDispatchToProps = dispatch => {
+  return {
+    userSelect: selectItem => dispatch(userSelect(selectItem)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SelectItem);
