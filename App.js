@@ -17,14 +17,14 @@ import RockPaperScissor from './src/Buoi5/RockPaperScissor';
 import DemoRedux from './src/Buoi6/DemoRedux';
 import {Provider} from 'react-redux';
 // import {store} from './src/Buoi6/redux/store';
-import store from './src/Buoi7/redux/store';
+import rootStore from './src/Buoi7/redux/store';
 import RockPaperScissorRedux from './src/Buoi7/RockPaperScissorRedux';
 
 //Stateful Component
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={rootStore}>
         <RockPaperScissorRedux />
       </Provider>
     );
