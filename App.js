@@ -19,13 +19,15 @@ import {Provider} from 'react-redux';
 // import {store} from './src/Buoi6/redux/store';
 import rootStore from './src/Buoi7/redux/store';
 import RockPaperScissorRedux from './src/Buoi7/RockPaperScissorRedux';
+import DemoLifecycle from './src/Buoi8/DemoLifecycle';
+import DemoCallAPI from './src/Buoi8/DemoCallAPI';
 
 //Stateful Component
 class App extends Component {
   render() {
     return (
       <Provider store={rootStore}>
-        <RockPaperScissorRedux />
+        <DemoCallAPI />
       </Provider>
     );
   }
