@@ -17,14 +17,14 @@ export default class Button extends Component {
   }
 }
 
-Button.defaultProps = {
-  style: {
-    backgroundColor: '#bbb',
-    borderRadius: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-};
+// Button.defaultProps = {
+//   style: {
+//     backgroundColor: '#bbb',
+//     borderRadius: 15,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+// };
 
 const styles = StyleSheet.create({
   gradientContainer: {

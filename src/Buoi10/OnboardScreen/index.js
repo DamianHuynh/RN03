@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
-import {Button, Text} from './components';
+import {Button, Text} from '../components';
 
 export default class OnboardScreen extends Component {
   render() {
@@ -9,8 +9,8 @@ export default class OnboardScreen extends Component {
         <StatusBar barStyle="light-content" />
         <View style={styles.bannerContainer} />
         <View style={styles.infoContainer}>
-          <Text style={styles.headerText}>Welcome</Text>
-          <Text style={styles.headerText}>React Native 03</Text>
+          <Text header>Welcome</Text>
+          <Text header>React Native 03</Text>
 
           <Text style={styles.descriptionText}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum sunt
@@ -48,10 +48,6 @@ const styles = StyleSheet.create({
     // backgroundColor: '#bff',
     justifyContent: 'center',
     paddingHorizontal: 30,
-  },
-  headerText: {
-    fontSize: 30,
-    fontWeight: '700',
   },
   descriptionText: {
     marginTop: 20,

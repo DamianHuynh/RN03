@@ -3,14 +3,23 @@ import {Text, StyleSheet} from 'react-native';
 
 export default class AppText extends Component {
   render() {
-    const {children, style} = this.props;
+    const {children, style, header} = this.props;
     console.log(this.props);
-    return <Text style={[styles.defaultTextStyle, style]}>{children}</Text>;
+    return (
+      <Text
+        style={[styles.defaultTextStyle, header && styles.headerStyle, style]}>
+        {children}
+      </Text>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   defaultTextStyle: {
     color: '#fff',
+  },
+  headerStyle: {
+    fontSize: 30,
+    fontWeight: '700',
   },
 });
