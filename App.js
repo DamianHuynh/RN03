@@ -23,13 +23,14 @@ import DemoLifecycle from './src/Buoi8/DemoLifecycle';
 import DemoCallAPI from './src/Buoi8/DemoCallAPI';
 import DemoAxios from './src/Buoi9/DemoAxios';
 import ListProductScreen from './src/Buoi9/ListProductScreen';
-
+import OnboardScreen from './src/Buoi10/OnboardScreen';
+import RootScreen from './src/Buoi10';
 //Stateful Component
 class App extends Component {
   render() {
     return (
       <Provider store={rootStore}>
-        <ListProductScreen />
+        <RootScreen />
       </Provider>
     );
   }
