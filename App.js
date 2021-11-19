@@ -24,13 +24,17 @@ import DemoCallAPI from './src/Buoi8/DemoCallAPI';
 import DemoAxios from './src/Buoi9/DemoAxios';
 import ListProductScreen from './src/Buoi9/ListProductScreen';
 import OnboardScreen from './src/Buoi10_11/OnboardScreen';
-import RootScreen from './src/Buoi10_11';
+import RootScreenB10 from './src/Buoi10_11';
+import RootScreen from './src/Buoi12';
+import {NavigationContainer} from '@react-navigation/native';
 //Stateful Component
 class App extends Component {
   render() {
     return (
       <Provider store={rootStore}>
-        <RootScreen />
+        <NavigationContainer>
+          <RootScreen />
+        </NavigationContainer>
       </Provider>
     );
   }
