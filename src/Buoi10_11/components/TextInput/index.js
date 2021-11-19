@@ -18,7 +18,7 @@ export default class TextInput extends Component {
   // };
 
   render() {
-    const {style, errorText} = this.props;
+    const {style, errorText, touched, placeholder} = this.props;
     return (
       <>
         <RNTextInput
