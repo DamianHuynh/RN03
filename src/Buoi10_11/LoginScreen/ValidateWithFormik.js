@@ -3,6 +3,16 @@ import React, {Component} from 'react';
 import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import {ButtonIcon, Text, TextInput} from '../components';
 import {fontIcon} from '../components/ButtonIcon';
+import * as Yup from 'yup';
+
+const validateSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Email Không Hợp lệ')
+    .required('Trường thông tin này bắt buộc nhập'),
+  password: Yup.string()
+    .min(5, 'Nhập tối thiểu 5 chữ số')
+    .required('Trường thông tin này bắt buộc nhập'),
+});
 
 export default class LoginScreen extends Component {
   onSubmit = values => {
@@ -24,9 +34,17 @@ export default class LoginScreen extends Component {
           </View>
 
           <Formik
+            validationSchema={validateSchema}
             initialValues={{email: 'email@gmail.com', password: ''}}
             onSubmit={this.onSubmit}>
-            {({values, handleChange, handleBlur, handleSubmit}) => (
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+            }) => (
               <View style={styles.formContainer}>
                 <View style={styles.formHeader}>
                   <Text header>Login With Formik</Text>
@@ -37,14 +55,16 @@ export default class LoginScreen extends Component {
                     placeholder={'Email'}
                     onChangeText={handleChange('email')}
                     value={values.email}
+                    touched={touched.email}
                     onBlur={handleBlur('email')}
-                    // errorText={this.state.emailError}
+                    errorText={errors.email}
                   />
                   <TextInput
                     placeholder={'Password'}
                     onChangeText={handleChange('password')}
                     value={values.password}
-                    // errorText={this.state.passwordError}
+                    touched={touched.password}
+                    errorText={errors.password}
                     onBlur={handleBlur('password')}
                   />
                 </View>
