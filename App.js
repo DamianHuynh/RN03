@@ -27,14 +27,14 @@ import OnboardScreen from './src/Buoi10_11/OnboardScreen';
 import RootScreenB10 from './src/Buoi10_11';
 import RootScreen from './src/Buoi12';
 import {NavigationContainer} from '@react-navigation/native';
+import DemoHook from './src/Buoi20/Hook';
+import DemoMemo from './src/Buoi20/DemoMemo';
 //Stateful Component
 class App extends Component {
   render() {
     return (
       <Provider store={rootStore}>
-        <NavigationContainer>
-          <RootScreen />
-        </NavigationContainer>
+        <DemoMemo />
       </Provider>
     );
   }
