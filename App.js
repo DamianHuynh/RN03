@@ -29,12 +29,15 @@ import RootScreen from './src/Buoi12';
 import {NavigationContainer} from '@react-navigation/native';
 import DemoHook from './src/Buoi20/Hook';
 import DemoMemo from './src/Buoi20/DemoMemo';
+import DemoAnimationJS from './src/Buoi22/DemoAnimationJS';
+import DemoAnimated from './src/Buoi22/DemoAnimated';
+import DemoInterpolate from './src/Buoi22/DemoInterpolate';
 //Stateful Component
 class App extends Component {
   render() {
     return (
       <Provider store={rootStore}>
-        <DemoMemo />
+        <DemoInterpolate />
       </Provider>
     );
   }
